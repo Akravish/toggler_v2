@@ -1,0 +1,164 @@
+$toggler_switch--width: 56px
+
+//---
+.toggler
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  background-color: $color-4
+  //background-color: $color-5
+
+.toggler_text
+  padding-bottom: 25px
+  font-size: 30px
+  line-height: 36px
+  color: $color-2
+
+.toggler_list
+  position: relative
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-start
+  align-items: center
+  width: 400px
+  +margin-center
+  border-radius: 5px
+  +bbx
+
+.toggler_item
+  display: flex
+  width: 50%
+  padding-bottom: 8px
+  +bbx
+  &:nth-child(2n-1)
+    padding-right: 16px
+  &:nth-child(2n)
+    padding-left: 16px
+
+.toggler_title
+  flex-grow: 1
+  width: 50%
+  color: $color-5
+  font-weight: 700
+
+.toggler_control
+  position: relative
+  width: 76px
+
+.toggler_switch
+  &.v-input--selection-controls.v-input--switch
+    margin-top: 0
+    padding-top: 0
+    width: $toggler_switch--width
+    height: 26px
+    .v-input--selection-controls__input
+      height: 26px
+      width: $toggler_switch--width
+      margin-right: 0
+      padding: 0 3px
+      box-sizing: border-box
+      transition: .3s cubic-bezier(.25,.8,.5,1)
+      input
+        left: 0
+        right: 0
+    .v-input--switch__track
+      top: calc(50% - 13px)
+      left: 0
+      right: 0
+      height: 100%
+      width: 100%
+      color: $color-4
+      border-radius: 13px
+      border: 1px solid $color-2
+      opacity: 1
+    .v-input--switch__thumb
+      color: $color-2
+      transform: translate(30px)!important
+    //---checked
+    &.v-input--switch--inset.v-input--is-dirty
+      .v-input--switch__track
+        color: $color-3!important
+        border: 1px solid $color-3
+      .v-input--switch__thumb
+        color: $color-5!important
+        transform: translate(0)!important
+    //---disabled
+    &.v-input--is-dirty.v-input--is-disabled
+      opacity: 1
+    //---telegram
+    &.toggler_switch-telegram-action
+      width: 76px
+      .v-input--selection-controls__input
+        width: 76px
+      .v-input--switch__thumb
+        transform: translate(50px)!important
+      &.v-input--switch--inset.v-input--is-dirty
+        .v-input--switch__track
+          color: $color-4!important
+          border: 1px solid $color-2
+        .v-input--switch__thumb
+          color: $color-2!important
+          transform: translate(50px)!important
+    &.toggler_switch-torrents-action
+      &.v-input--switch--inset.v-input--is-dirty
+        .v-input--switch__track
+          color: $color-4!important
+          border: 1px solid $color-2
+          width: 26px
+        .v-input--switch__thumb
+          color: $color-2!important
+
+.toggler_torrents
+  position: absolute
+  z-index: 1
+  top: 0
+  left: 0
+  display: flex
+  height: 100%
+  opacity: 0
+  visibility: hidden
+  transition: .3s cubic-bezier(.25,.8,.5,1)
+  transition-delay: 0s
+  &.toggler_torrents--active
+    opacity: 1
+    visibility: visible
+    transition-delay: .3s
+
+.toggler_torrents-item
+  &:not(:last-child)
+    padding-right: 4px
+.toggler_checkbox
+  &.v-input--selection-controls.v-input--checkbox
+    margin-top: 0
+    padding-top: 0
+    .v-input--selection-controls__input
+      width: 26px
+      height: 26px
+      margin-right: 0
+      input
+        z-index: 1
+    .v-icon
+      font-size: 0
+      width: 100%
+      height: 100%
+      background-color: $color-4
+      border-radius: 50%
+      border: 1px solid $color-2
+      &:after
+        content: ''
+        position: absolute
+        z-index: 0
+        top: calc(50% - 10px)
+        left: calc(50% - 10px)
+        width: 20px
+        height: 20px
+        background-color: $color-2
+        border-radius: 50%
+        transform: scale(0)
+        transition: .3s cubic-bezier(.25,.8,.5,1)
+    &.v-input--is-dirty
+      .v-icon
+        &:after
+          transform: scale(1)
