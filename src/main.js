@@ -11,7 +11,7 @@ import store from './store'
 import Vuetify from 'vuetify'
 
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;
 Vue.use(Vuetify);
 
 let vuetify = new Vuetify({
