@@ -76,11 +76,11 @@ export default {
         if (item.id === 0 && item.counter > 0) {
           if (item.isInAction) {
             //---clear 3 toggler
+            item.isInAction = false;
+            item.isLockForAction = true;
             for (let i = 0; i < 3; i++ ) {
               this._clearRandomToggler(item.id);
             }
-            item.isInAction = false;
-            item.isLockForAction = true;
           }
 
           if (!item.isLockForAction) {
